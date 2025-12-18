@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 export const Footer = () => {
   return (
@@ -10,39 +10,69 @@ export const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="inline-block mb-3 sm:mb-4">
-              <img src={logo} alt="Aarohi Selections Logo" className="h-12 sm:h-16 w-auto" />
+              <img
+                src={logo}
+                alt="Aarohi Selections Logo"
+                className="h-12 sm:h-16 w-auto"
+              />
             </Link>
             <p className="text-xs sm:text-sm text-muted-foreground">
-              Your destination for authentic and elegant Indian sarees. Quality craftsmanship meets timeless tradition.
+              Your destination for authentic and elegant Indian sarees. Quality
+              craftsmanship meets timeless tradition.
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h4>
+            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+              Quick Links
+            </h4>
             <ul className="space-y-1.5 sm:space-y-2">
               <li>
-                <Link to="/" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to="/collections" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/collections"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Collections
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/about"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/contact"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link to="/returns-policy" className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth">
+                <Link
+                  to="/track-order"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth"
+                >
+                  Track your order
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/returns-policy"
+                  className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-smooth"
+                >
                   Returns Policy
                 </Link>
               </li>
@@ -51,26 +81,32 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Contact Us</h4>
+            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+              Contact Us
+            </h4>
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-muted-foreground">
               <li className="flex items-center space-x-2">
                 <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
-                <span className="truncate">+91 XXXXX XXXXX</span>
+                <span className="truncate">+91 8639619426</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
-                <span className="truncate text-[10px] sm:text-sm">info@aarohiselections.com</span>
+                <span className="truncate text-[10px] sm:text-sm">
+                  info@aarohiselections.in
+                </span>
               </li>
-              <li className="flex items-center space-x-2">
+              {/* <li className="flex items-center space-x-2">
                 <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
                 <span>Your Location</span>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           {/* Business Hours */}
           <div className="col-span-2 md:col-span-1">
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Business Hours</h4>
+            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">
+              Business Hours
+            </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
               <li className="flex items-start space-x-2">
                 <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary mt-0.5 flex-shrink-0" />
@@ -83,7 +119,7 @@ export const Footer = () => {
                 <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p>Sunday</p>
-                  <p className="text-[10px] sm:text-xs">10:00 AM - 8:00 PM</p>
+                  <p className="text-[10px] sm:text-xs">10:00 AM - 5:00 PM</p>
                 </div>
               </li>
             </ul>

@@ -23,27 +23,109 @@ import About from "./pages/About";
 import ReturnsPolicy from "./pages/ReturnsPolicy";
 import Wishlist from "./pages/Wishlist";
 import NotFound from "./pages/NotFound";
-
+import TrackOrder from "@/pages/TrackOrder";
+import PaymentSuccess from "@/pages/PaymentSuccess";
+import PaymentFailed from "@/pages/PaymentFailed";
 const queryClient = new QueryClient();
 
 // Animated Routes component
 const AnimatedRoutes = () => {
   const location = useLocation();
-  
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-        <Route path="/collections" element={<PageTransition><Collections /></PageTransition>} />
-        <Route path="/product/:id" element={<PageTransition><ProductDetail /></PageTransition>} />
-        <Route path="/cart" element={<PageTransition><Cart /></PageTransition>} />
-        <Route path="/checkout" element={<PageTransition><Checkout /></PageTransition>} />
-        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/returns-policy" element={<PageTransition><ReturnsPolicy /></PageTransition>} />
-        <Route path="/wishlist" element={<PageTransition><Wishlist /></PageTransition>} />
+        <Route
+          path="/"
+          element={
+            <PageTransition>
+              <Home />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/collections"
+          element={
+            <PageTransition>
+              <Collections />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/product/:id"
+          element={
+            <PageTransition>
+              <ProductDetail />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <PageTransition>
+              <Cart />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PageTransition>
+              <Checkout />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              <Contact />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <PageTransition>
+              <About />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/returns-policy"
+          element={
+            <PageTransition>
+              <ReturnsPolicy />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/track-order"
+          element={
+            <PageTransition>
+              <TrackOrder />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <PageTransition>
+              <Wishlist />
+            </PageTransition>
+          }
+        />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
+        <Route
+          path="*"
+          element={
+            <PageTransition>
+              <NotFound />
+            </PageTransition>
+          }
+        />
+        <Route path="/payment-success" element={<PaymentSuccess />} />
+        <Route path="/payment-failed" element={<PaymentFailed />} />
       </Routes>
     </AnimatePresence>
   );

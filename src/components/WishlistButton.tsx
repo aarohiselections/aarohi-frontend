@@ -1,44 +1,62 @@
-import { Heart } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { toast } from 'sonner';
+import { Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { toast } from "sonner";
 
 interface WishlistButtonProps {
   productId: string;
   productName: string;
   className?: string;
-  size?: 'sm' | 'default' | 'lg' | 'icon';
+  size?: "sm" | "default" | "lg" | "icon";
 }
 
-export const WishlistButton = ({ productId, productName, className = '', size = 'icon' }: WishlistButtonProps) => {
+export const WishlistButton = ({
+  productId,
+  productName,
+  className = "",
+  size = "icon",
+}: WishlistButtonProps) => {
   const [isWishlisted, setIsWishlisted] = useState(false);
 
+  // Load wishlist from localStorage on mount
   useEffect(() => {
-    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
     setIsWishlisted(wishlist.includes(productId));
+
+    // Listen for custom event to sync across multiple buttons/components
+    const handleWishlistUpdate = () => {
+      const updatedWishlist = JSON.parse(
+        localStorage.getItem("wishlist") || "[]"
+      );
+      setIsWishlisted(updatedWishlist.includes(productId));
+    };
+    window.addEventListener("wishlistUpdated", handleWishlistUpdate);
+
+    return () =>
+      window.removeEventListener("wishlistUpdated", handleWishlistUpdate);
   }, [productId]);
 
   const toggleWishlist = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
-    
+
+    const wishlist = JSON.parse(localStorage.getItem("wishlist") || "[]");
+
     if (isWishlisted) {
       const updated = wishlist.filter((id: string) => id !== productId);
-      localStorage.setItem('wishlist', JSON.stringify(updated));
+      localStorage.setItem("wishlist", JSON.stringify(updated));
       setIsWishlisted(false);
       toast.info(`${productName} removed from wishlist`);
     } else {
       wishlist.push(productId);
-      localStorage.setItem('wishlist', JSON.stringify(wishlist));
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
       setIsWishlisted(true);
       toast.success(`${productName} added to wishlist`);
     }
-    
+
     // Dispatch custom event for same-tab updates
-    window.dispatchEvent(new Event('wishlistUpdated'));
+    window.dispatchEvent(new Event("wishlistUpdated"));
   };
 
   return (
@@ -47,22 +65,22 @@ export const WishlistButton = ({ productId, productName, className = '', size = 
       size={size}
       onClick={toggleWishlist}
       className={`relative group ${className}`}
-      aria-label={isWishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+      aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
     >
       <AnimatePresence mode="wait">
         <motion.div
-          key={isWishlisted ? 'filled' : 'empty'}
+          key={isWishlisted ? "filled" : "empty"}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
           transition={{ type: "spring", stiffness: 500, damping: 25 }}
         >
-          <Heart 
+          <Heart
             className={`h-5 w-5 transition-colors ${
-              isWishlisted 
-                ? 'fill-red-500 text-red-500' 
-                : 'text-foreground/60 group-hover:text-red-500'
-            }`} 
+              isWishlisted
+                ? "fill-red-500 text-red-500"
+                : "text-foreground/60 group-hover:text-red-500"
+            }`}
           />
         </motion.div>
       </AnimatePresence>

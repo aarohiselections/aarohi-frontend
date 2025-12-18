@@ -10,6 +10,9 @@ export interface Product {
   fabricType: string;
   colors: string[];
   inStock: boolean;
+
+  category_name?: string;
+  fabric_type_name?: string | null;
 }
 
 export interface CartItem extends Product {

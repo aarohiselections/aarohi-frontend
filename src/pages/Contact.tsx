@@ -1,23 +1,25 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { toast } from 'sonner';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
@@ -25,9 +27,9 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.name || !formData.phone || !formData.message) {
-      toast.error('Please fill in all required fields');
+      toast.error("Please fill in all required fields");
       return;
     }
 
@@ -42,37 +44,37 @@ const Contact = () => {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919999999999?text=${encodedMessage}`; // Replace with actual WhatsApp number
 
-    window.open(whatsappUrl, '_blank');
-    toast.success('Thank you! We will get back to you soon.');
-    
+    window.open(whatsappUrl, "_blank");
+    toast.success("Thank you! We will get back to you soon.");
+
     // Reset form
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
     });
   };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      content: '+91 XXXXX XXXXX',
-      description: 'Monday to Sunday, 10 AM - 8 PM',
+      title: "Phone",
+      content: "+91 XXXXX XXXXX",
+      description: "Monday to Sunday, 10 AM - 8 PM",
     },
     {
       icon: Mail,
-      title: 'Email',
-      content: 'info@aarohiselections.com',
-      description: 'We will respond within 24 hours',
+      title: "Email",
+      content: "info@aarohiselections.in",
+      description: "We will respond within 24 hours",
     },
-    {
-      icon: MapPin,
-      title: 'Location',
-      content: 'Your Location',
-      description: 'Visit our store',
-    },
+    // {
+    //   icon: MapPin,
+    //   title: "Location",
+    //   content: "Your Location",
+    //   description: "Visit our store",
+    // },
   ];
 
   return (
@@ -84,7 +86,8 @@ const Contact = () => {
       >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Have a question or feedback? We'd love to hear from you. Reach out to us through any of the channels below.
+          Have a question or feedback? We'd love to hear from you. Reach out to
+          us through any of the channels below.
         </p>
       </motion.div>
 
@@ -103,7 +106,9 @@ const Contact = () => {
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{info.title}</h3>
                 <p className="text-primary font-medium mb-1">{info.content}</p>
-                <p className="text-sm text-muted-foreground">{info.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {info.description}
+                </p>
               </CardContent>
             </Card>
           </motion.div>
@@ -174,7 +179,11 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-gradient-primary hover:opacity-90">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-gradient-primary hover:opacity-90"
+                >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Send via WhatsApp
                 </Button>
@@ -201,15 +210,21 @@ const Contact = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span className="font-medium">Monday - Friday</span>
-                  <span className="text-muted-foreground">10:00 AM - 8:00 PM</span>
+                  <span className="text-muted-foreground">
+                    10:00 AM - 8:00 PM
+                  </span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-border">
                   <span className="font-medium">Saturday</span>
-                  <span className="text-muted-foreground">10:00 AM - 8:00 PM</span>
+                  <span className="text-muted-foreground">
+                    10:00 AM - 8:00 PM
+                  </span>
                 </div>
                 <div className="flex justify-between items-center py-2">
                   <span className="font-medium">Sunday</span>
-                  <span className="text-muted-foreground">10:00 AM - 8:00 PM</span>
+                  <span className="text-muted-foreground">
+                    10:00 AM - 5:00 PM
+                  </span>
                 </div>
               </div>
             </CardContent>
@@ -222,12 +237,12 @@ const Contact = () => {
             <CardContent>
               <ul className="space-y-3">
                 {[
-                  'Authentic handcrafted sarees',
-                  'Premium quality fabrics',
-                  'Competitive pricing',
-                  'Excellent customer service',
-                  'Fast and secure delivery',
-                  'Easy returns and exchanges',
+                  "Authentic handcrafted sarees",
+                  "Premium quality fabrics",
+                  "Competitive pricing",
+                  "Excellent customer service",
+                  "Fast and secure delivery",
+                  "Easy exchanges",
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center">
                     <div className="w-2 h-2 bg-primary rounded-full mr-3" />

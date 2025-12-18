@@ -1,29 +1,33 @@
-import { motion } from 'framer-motion';
-import { Heart, Sparkles, Award, Users } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
-import logo from '@/assets/logo.png';
+import { motion } from "framer-motion";
+import { Heart, Sparkles, Award, Users } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import logo from "@/assets/logo.png";
 
 const About = () => {
   const values = [
     {
       icon: Heart,
-      title: 'Passion for Quality',
-      description: 'Every saree in our collection is carefully selected for its superior quality and craftsmanship.',
+      title: "Passion for Quality",
+      description:
+        "Every saree in our collection is carefully selected for its superior quality and craftsmanship.",
     },
     {
       icon: Sparkles,
-      title: 'Timeless Elegance',
-      description: 'We curate designs that blend traditional heritage with contemporary style.',
+      title: "Timeless Elegance",
+      description:
+        "We curate designs that blend traditional heritage with contemporary style.",
     },
     {
       icon: Award,
-      title: 'Authentic Products',
-      description: 'We work directly with skilled artisans to bring you genuine, handcrafted sarees.',
+      title: "Authentic Products",
+      description:
+        "We work directly with skilled artisans to bring you genuine, handcrafted sarees.",
     },
     {
       icon: Users,
-      title: 'Customer First',
-      description: 'Your satisfaction is our priority, with dedicated support at every step.',
+      title: "Customer First",
+      description:
+        "Your satisfaction is our priority, with dedicated support at every step.",
     },
   ];
 
@@ -37,8 +41,14 @@ const About = () => {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <img src={logo} alt="Aarohi Selections Logo" className="h-24 w-auto mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">About Aarohi Selections</h1>
+            <img
+              src={logo}
+              alt="Aarohi Selections Logo"
+              className="h-24 w-auto mx-auto mb-6"
+            />
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              About Aarohi Selections
+            </h1>
             <p className="text-xl md:text-2xl text-white/90">
               Your destination for authentic and exquisite Indian sarees
             </p>
@@ -58,19 +68,23 @@ const About = () => {
             <h2 className="text-4xl font-bold mb-6">Our Story</h2>
             <div className="space-y-4 text-lg text-muted-foreground text-left">
               <p>
-                Aarohi Selections was born from a deep appreciation for the timeless art of Indian textile craftsmanship. 
-                Our journey began with a simple vision: to bring the finest traditional sarees to fashion-conscious women 
-                who value authenticity and quality.
+                Aarohi Selections was born from a deep appreciation for the
+                timeless art of Indian textile craftsmanship. Our journey began
+                with a simple vision: to bring the finest traditional sarees to
+                fashion-conscious women who value authenticity and quality.
               </p>
               <p>
-                Named after the ascending musical notes that represent growth and elevation, Aarohi embodies our commitment 
-                to rising standards in both product quality and customer service. Each saree in our collection is a 
-                testament to the skilled artisans who pour their heart and soul into creating these masterpieces.
+                Named after the ascending musical notes that represent growth
+                and elevation, Aarohi embodies our commitment to rising
+                standards in both product quality and customer service. Each
+                saree in our collection is a testament to the skilled artisans
+                who pour their heart and soul into creating these masterpieces.
               </p>
               <p>
-                From the luxurious silks of Kanjivaram to the intricate weaves of Banarasi, from elegant designer pieces 
-                to traditional wedding sarees, we curate only the finest selections. Every piece tells a story of heritage, 
-                craftsmanship, and timeless elegance.
+                From the luxurious silks of Kanjivaram to the intricate weaves
+                of Banarasi, from elegant designer pieces to traditional wedding
+                sarees, we curate only the finest selections. Every piece tells
+                a story of heritage, craftsmanship, and timeless elegance.
               </p>
             </div>
           </motion.div>
@@ -106,8 +120,12 @@ const About = () => {
                     <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                       <value.icon className="h-8 w-8 text-primary" />
                     </div>
-                    <h3 className="font-semibold text-lg mb-3">{value.title}</h3>
-                    <p className="text-muted-foreground text-sm">{value.description}</p>
+                    <h3 className="font-semibold text-lg mb-3">
+                      {value.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm">
+                      {value.description}
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -126,15 +144,21 @@ const About = () => {
         >
           <Card className="bg-gradient-primary text-white">
             <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Our Promise to You</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+                Our Promise to You
+              </h2>
               <div className="space-y-4 text-lg">
                 <p>
-                  At Aarohi Selections, we promise to deliver not just sarees, but experiences. Each purchase is backed by:
+                  At Aarohi Selections, we promise to deliver not just sarees,
+                  but experiences. Each purchase is backed by:
                 </p>
                 <ul className="space-y-3 ml-6">
                   <li className="flex items-start">
                     <span className="mr-3">✓</span>
-                    <span>100% authentic, handcrafted products from verified artisans</span>
+                    <span>
+                      100% authentic, handcrafted products from verified
+                      artisans
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-3">✓</span>
@@ -142,7 +166,10 @@ const About = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="mr-3">✓</span>
-                    <span>Dedicated customer support throughout your shopping journey</span>
+                    <span>
+                      Dedicated customer support throughout your shopping
+                      journey
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-3">✓</span>
@@ -150,7 +177,7 @@ const About = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="mr-3">✓</span>
-                    <span>Easy returns and exchange policy</span>
+                    <span>Easy replacement and exchange policy</span>
                   </li>
                 </ul>
               </div>
@@ -169,7 +196,8 @@ const About = () => {
         >
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Have questions or want to know more about our collection? We'd love to hear from you.
+            Have questions or want to know more about our collection? We'd love
+            to hear from you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/contact">
