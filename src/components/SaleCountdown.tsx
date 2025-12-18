@@ -98,9 +98,9 @@ interface TimeLeft {
   minutes: number;
   seconds: number;
 }
-
+const BASE_URL = import.meta.env.VITE_API_URL;
 export const SaleCountdown = ({
-  apiUrl = "http://127.0.0.1:8000/api/flash-sales/",
+  apiUrl = `${BASE_URL}/flash-sales/`,
 }: SaleCountdownProps) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,

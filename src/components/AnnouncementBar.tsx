@@ -13,8 +13,10 @@ const defaultMessages = [
   "📞 WhatsApp us for personalized assistance",
 ];
 
+const BASE_URL = import.meta.env.VITE_API_URL;
+
 export const AnnouncementBar = ({
-  apiUrl = "http://127.0.0.1:8000/api/announcements/",
+  apiUrl = `${BASE_URL}/announcements/`,
 }: AnnouncementBarProps) => {
   const [messages, setMessages] = useState<string[]>(defaultMessages);
   const [loaded, setLoaded] = useState(false);

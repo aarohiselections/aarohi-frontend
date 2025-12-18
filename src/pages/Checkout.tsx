@@ -499,7 +499,8 @@ import { ShoppingBag } from "lucide-react";
 import { motion } from "framer-motion";
 
 const CHECKOUT_FORM_KEY = "checkoutForm";
-const BASE_URL = "http://127.0.0.1:8000";
+const BASE_URL = import.meta.env.VITE_API_URL;
+//const BASE_URL = "http://127.0.0.1:8000";
 
 const PAYMENT_METHODS = ["upi", "card", "debit_card", "wallet"] as const;
 type PaymentMethod = (typeof PAYMENT_METHODS)[number];

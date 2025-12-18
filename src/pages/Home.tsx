@@ -318,11 +318,11 @@ const Home = () => {
   const [currentBanner, setCurrentBanner] = useState(0);
   // 2. Update state to use the correct APIProduct type
   const [latestProducts, setLatestProducts] = useState<APIProduct[]>([]);
-
+  const BASE_URL = import.meta.env.VITE_API_URL;
   // Fetch banners from backend
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/banners/")
+      .get(`${BASE_URL}/banners/`)
       .then((res) => {
         if (res.data && res.data.length > 0) setBanners(res.data);
       })
@@ -334,7 +334,7 @@ const Home = () => {
   // Fetch latest 4 products from backend
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:8000/api/products/latest/?limit=4")
+      .get(`${BASE_URL}/products/latest/?limit=4`)
       .then((res) => setLatestProducts(res.data))
       .catch((err) => console.error("Failed to load latest products:", err));
   }, []);

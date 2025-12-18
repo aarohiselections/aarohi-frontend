@@ -352,16 +352,14 @@ const ProductDetail = () => {
   const [error, setError] = useState(false);
   const { cart, addToCart, updateQuantity } = useCart();
   const [selectedImage, setSelectedImage] = useState(0);
-
+  const BASE_URL = import.meta.env.VITE_API_URL;
   // Fetch Product Data
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
         // Endpoint based on your adminapp/urls.py
-        const response = await axios.get(
-          `http://127.0.0.1:8000/api/products/${id}/detail/`
-        );
+        const response = await axios.get(`${BASE_URL}/products/${id}/detail/`);
         setProduct(response.data);
         setError(false);
 
