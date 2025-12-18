@@ -1,13 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import TermsConditions from "./TermsConditions";
 import PrivacyPolicy from "./PrivacyPolicy";
 import ShippingPolicyContent from "./ShippingPolicy";
 import "./PoliciesPage.css";
 
 const PoliciesPage: React.FC = () => {
+  const location = useLocation();
   const [activeTab, setActiveTab] = useState<"terms" | "privacy" | "shipping">(
     "terms"
   );
+
+  // Handle URL hash navigation
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (hash === "terms") setActiveTab("terms");
+    else if (hash === "privacy") setActiveTab("privacy");
+    else if (hash === "shipping" || hash === "shipping-policy")
+      setActiveTab("shipping");
+  }, [location.hash]);
+
+  const handleTabClick = (tab: "terms" | "privacy" | "shipping") => {
+    setActiveTab(tab);
+    // Update URL hash
+    window.history.replaceState(
+      null,
+      "",
+      `/policies#${tab === "shipping" ? "shipping" : tab}`
+    );
+  };
 
   return (
     <div className="policies-container">
@@ -19,19 +40,19 @@ const PoliciesPage: React.FC = () => {
       <div className="policies-tabs">
         <button
           className={`tab-btn ${activeTab === "terms" ? "active" : ""}`}
-          onClick={() => setActiveTab("terms")}
+          onClick={() => handleTabClick("terms")}
         >
           Terms & Conditions
         </button>
         <button
           className={`tab-btn ${activeTab === "privacy" ? "active" : ""}`}
-          onClick={() => setActiveTab("privacy")}
+          onClick={() => handleTabClick("privacy")}
         >
           Privacy Policy
         </button>
         <button
           className={`tab-btn ${activeTab === "shipping" ? "active" : ""}`}
-          onClick={() => setActiveTab("shipping")}
+          onClick={() => handleTabClick("shipping")}
         >
           Shipping Policy
         </button>
