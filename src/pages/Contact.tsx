@@ -42,7 +42,7 @@ const Contact = () => {
     message += `\n💬 *Message:*\n${formData.message}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919999999999?text=${encodedMessage}`; // Replace with actual WhatsApp number
+    const whatsappUrl = `https://wa.me/+916303519426?text=${encodedMessage}`; // Replace with actual WhatsApp number
 
     window.open(whatsappUrl, "_blank");
     toast.success("Thank you! We will get back to you soon.");

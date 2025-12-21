@@ -1,6 +1,12 @@
-import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { AlertTriangle, Video, Package, CheckCircle, XCircle } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  AlertTriangle,
+  Video,
+  Package,
+  CheckCircle,
+  XCircle,
+} from "lucide-react";
 
 const ReturnsPolicy = () => {
   return (
@@ -10,7 +16,9 @@ const ReturnsPolicy = () => {
         animate={{ opacity: 1, y: 0 }}
         className="max-w-4xl mx-auto"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Returns & Replacement Policy</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">
+          Returns & Replacement Policy
+        </h1>
         <p className="text-lg text-muted-foreground text-center mb-8">
           We want you to be completely satisfied with your purchase
         </p>
@@ -28,8 +36,9 @@ const ReturnsPolicy = () => {
               Only Replacement Option Available - No Refunds
             </p>
             <p className="text-muted-foreground">
-              We offer replacement only for damaged products. Refunds are not available under any circumstances.
-              Please read the complete policy below before making a purchase.
+              We offer replacement only for damaged products. Refunds are not
+              available under any circumstances. Please read the complete policy
+              below before making a purchase.
             </p>
           </CardContent>
         </Card>
@@ -44,7 +53,8 @@ const ReturnsPolicy = () => {
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">
-              To be eligible for replacement, you must provide a complete unboxing video of the product.
+              To be eligible for replacement, you must provide a complete
+              unboxing video of the product.
             </p>
             <div className="bg-muted/50 p-4 rounded-lg">
               <h4 className="font-semibold mb-2">Video Requirements:</h4>
@@ -146,11 +156,36 @@ const ReturnsPolicy = () => {
           <CardContent>
             <div className="space-y-4">
               {[
-                { step: 1, title: 'Record Unboxing Video', desc: 'Record a continuous video while unboxing the product' },
-                { step: 2, title: 'Contact Us Within 48 Hours', desc: 'Reach out via WhatsApp with the unboxing video and order details' },
-                { step: 3, title: 'Video Verification', desc: 'Our team will verify the video and damage claim' },
-                { step: 4, title: 'Pickup Arranged', desc: 'We will arrange pickup of the damaged product' },
-                { step: 5, title: 'Replacement Shipped', desc: 'New product will be shipped once we receive the original' },
+                {
+                  step: 1,
+                  title: "Record Unboxing Video",
+                  desc: "Record a continuous video while unboxing the product",
+                },
+                {
+                  step: 2,
+                  title: "Contact Us Within 48 Hours",
+                  desc: "Reach out via WhatsApp with the unboxing video and order details",
+                },
+                {
+                  step: 3,
+                  title: "Video Verification",
+                  desc: "Our team will verify the video and damage claim",
+                },
+                {
+                  step: 4,
+                  title: "Pickup Arranged",
+                  desc: "We will arrange pickup of the damaged product",
+                },
+                {
+                  step: 5,
+                  title: "Replacement Shipped",
+                  desc: "New product will be shipped once we receive the original",
+                },
+                {
+                  step: 6,
+                  title: "Replaced Product Delivery timeline",
+                  desc: "After inspection of damaged/defective products is accepted then new product will be delivered within 7 to 10 business days",
+                },
               ].map((item) => (
                 <div key={item.step} className="flex items-start gap-4">
                   <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center flex-shrink-0 font-bold">
@@ -169,12 +204,14 @@ const ReturnsPolicy = () => {
         {/* Contact for Returns */}
         <Card className="bg-muted/30">
           <CardContent className="pt-6 text-center">
-            <h3 className="text-xl font-semibold mb-2">Need to Request a Replacement?</h3>
+            <h3 className="text-xl font-semibold mb-2">
+              Need to Request a Replacement?
+            </h3>
             <p className="text-muted-foreground mb-4">
               Contact us via WhatsApp with your unboxing video and order details
             </p>
             <a
-              href="https://wa.me/919999999999?text=Hi!%20I%20need%20to%20request%20a%20replacement%20for%20my%20order."
+              href="https://wa.me/916303519426?text=Hi!%20I%20need%20to%20request%20a%20replacement%20for%20my%20order."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-lg font-semibold transition-colors"

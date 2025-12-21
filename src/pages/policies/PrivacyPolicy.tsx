@@ -68,7 +68,7 @@ const PrivacyPolicy: React.FC = () => {
             <br />
             Contact Details:
             <br />
-            Email: aarohiselections@gmail.com | Phone: +918639619426
+            Email: aarohiselections@gmail.com | Phone: +916303519426
             <br />
             Mon-Fri 9:00-18:00
           </p>

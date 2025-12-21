@@ -617,7 +617,7 @@ const ProductDetail = () => {
 
           {/* Colors */}
           <div className="border-t border-border pt-6">
-            <h3 className="font-semibold mb-3">Available Colors</h3>
+            <h3 className="font-semibold mb-3">Color</h3>
             <div className="flex flex-wrap gap-3">
               {product.colors.length > 0 ? (
                 product.colors.map((color) => (

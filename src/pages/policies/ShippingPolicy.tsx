@@ -30,8 +30,8 @@ const ShippingPolicy: React.FC = () => {
             <h3>Delivery Timeline</h3>
             <ul>
               <li>
-                Orders shipped within <strong>7 days</strong> from order/payment
-                date
+                Orders shipped and delivered within <strong>7 days</strong> from
+                order/payment date
               </li>
               <li>Or as per agreed delivery date at order confirmation</li>
               <li>Subject to courier/post office processing times</li>

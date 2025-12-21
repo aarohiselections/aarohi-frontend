@@ -318,7 +318,7 @@ export const Footer = () => {
             <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-muted-foreground">
               <li className="flex items-center space-x-2">
                 <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />
-                <span className="truncate">+91 8639619426</span>
+                <span className="truncate">+91 6303519426</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-primary flex-shrink-0" />

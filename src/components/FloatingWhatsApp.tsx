@@ -1,10 +1,12 @@
-import { MessageCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { MessageCircle } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const FloatingWhatsApp = () => {
   const handleClick = () => {
-    const message = encodeURIComponent('Hi! I have a query about Aarohi Selections.');
-    window.open(`https://wa.me/919999999999?text=${message}`, '_blank');
+    const message = encodeURIComponent(
+      "Hi! I have a query about Aarohi Selections."
+    );
+    window.open(`https://wa.me/+916303519426?text=${message}`, "_blank");
   };
 
   return (
