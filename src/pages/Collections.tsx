@@ -522,13 +522,10 @@ const Collections = () => {
   }, []);
 
   useEffect(() => {
-    const initialSearch = searchParams.get("search") || "";
-    if (initialSearch !== searchQuery) {
-      // Prevent infinite loop
-      setSearchQuery(initialSearch);
-      setDebouncedSearch(initialSearch); // Immediate fetch
-    }
-  }, [searchParams, searchQuery]); // empty deps = runs once
+    const urlSearch = searchParams.get("search") || "";
+    setSearchQuery(urlSearch);
+    setDebouncedSearch(urlSearch); // Immediate fetch, no debounce needed
+  }, [searchParams]);
   // --- Search Debounce ---
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -604,6 +601,7 @@ const Collections = () => {
 
   const clearAllFilters = () => {
     setSearchQuery("");
+    setDebouncedSearch("");
     setSelectedCategory("All");
     setSelectedFabric("All");
     setSelectedColor(null);
@@ -611,7 +609,7 @@ const Collections = () => {
     setPriceRange([0, 20000]);
     setShowOnlyDiscount(false);
     setShowInStock(false);
-    navigate("/collections");
+    navigate("/collections"); // Clears URL
   };
 
   const activeFiltersCount = [
