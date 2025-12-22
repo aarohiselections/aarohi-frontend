@@ -1,5 +1,5 @@
 // src/context/SearchContext.tsx
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, ReactNode } from "react";
 
 interface SearchContextType {
   openGlobalSearch: () => void;
@@ -8,10 +8,8 @@ interface SearchContextType {
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
 
 export const SearchProvider = ({ children }: { children: ReactNode }) => {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-
   const openGlobalSearch = () => {
-    setIsSearchOpen(true);
+    window.dispatchEvent(new CustomEvent("openGlobalSearch"));
   };
 
   return (

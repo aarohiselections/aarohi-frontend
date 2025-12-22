@@ -6,8 +6,10 @@ import { useCart } from "@/context/CartContext";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "@/assets/logo.png";
+import { useGlobalSearch } from "@/context/SearchContext";
 
 export const Header = () => {
+  const { openGlobalSearch } = useGlobalSearch();
   const { cartCount } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -77,9 +79,7 @@ export const Header = () => {
               variant="outline"
               size="icon"
               className="rounded-full"
-              onClick={() => {
-                /* You'll need a context/useGlobalSearch hook or pass down the callback */
-              }}
+              onClick={openGlobalSearch}
               aria-label="Search"
             >
               <Search className="h-4 w-4" />

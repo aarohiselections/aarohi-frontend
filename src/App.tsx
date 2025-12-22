@@ -175,18 +175,13 @@
 // );
 
 // export default App;
-import { useState, useEffect, useRef } from "react";
-import { useNavigate, createSearchParams, Outlet } from "react-router-dom";
-import { Search, X } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { CartProvider } from "@/context/CartContext";
+import { SearchProvider } from "@/context/SearchContext"; // ⬅️ NEW
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { PeacockAnimation } from "@/components/PeacockAnimation";
@@ -195,6 +190,7 @@ import { AnnouncementBar } from "@/components/AnnouncementBar";
 import { PageTransition } from "@/components/PageTransition";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { AnimatePresence } from "framer-motion";
+import AppLayout from "@/layouts/AppLayout"; // ⬅️ NEW IMPORT
 import ShippingPolicy from "./pages/policies/ShippingPolicy";
 import Home from "./pages/Home";
 import Collections from "./pages/Collections";
@@ -210,104 +206,10 @@ import TrackOrder from "@/pages/TrackOrder";
 import PaymentSuccess from "@/pages/PaymentSuccess";
 import PaymentFailed from "@/pages/PaymentFailed";
 import PoliciesPage from "@/pages/policies/PoliciesPage";
-import { SearchProvider } from "./context/SearchContext";
 
 const queryClient = new QueryClient();
 
-// NEW: AppLayout with global search
-const AppLayout = () => {
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [globalSearch, setGlobalSearch] = useState("");
-  const navigate = useNavigate();
-  const location = useLocation();
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
-  // Close overlay when route changes
-  useEffect(() => {
-    setIsSearchOpen(false);
-  }, [location.pathname]);
-
-  // Auto-focus when overlay opens
-  useEffect(() => {
-    if (isSearchOpen && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isSearchOpen]);
-
-  const openSearch = () => {
-    setGlobalSearch("");
-    setIsSearchOpen(true);
-  };
-
-  const handleSubmit = (e?: React.FormEvent) => {
-    if (e) e.preventDefault();
-    const trimmed = globalSearch.trim();
-    navigate({
-      pathname: "/collections",
-      search: trimmed ? `?${createSearchParams({ search: trimmed })}` : "",
-    });
-  };
-
-  return (
-    <>
-      {/* Global Search Overlay */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            key="global-search"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-background/95 backdrop-blur"
-          >
-            <div className="h-full flex flex-col">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-                <span className="text-sm font-medium sm:text-base">
-                  Search products
-                </span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsSearchOpen(false)}
-                  aria-label="Close search"
-                >
-                  <X className="h-5 w-5" />
-                </Button>
-              </div>
-              <form
-                onSubmit={handleSubmit}
-                className="flex-1 flex items-center justify-center px-4"
-              >
-                <div className="w-full max-w-xl relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                  <Input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="Search sarees, fabrics, colors..."
-                    value={globalSearch}
-                    onChange={(e) => setGlobalSearch(e.target.value)}
-                    className="pl-10 pr-24 h-12 text-base sm:text-lg"
-                  />
-                  <Button
-                    type="submit"
-                    className="absolute right-1 top-1/2 -translate-y-1/2 h-10 px-4 text-sm sm:text-base"
-                  >
-                    Search
-                  </Button>
-                </div>
-              </form>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Page content */}
-      <Outlet />
-    </>
-  );
-};
-
-// Animated Routes component (updated to use AppLayout)
+// Animated Routes component (UPDATED to use AppLayout)
 const AnimatedRoutes = () => {
   const location = useLocation();
 
@@ -437,6 +339,8 @@ const App = () => (
     <TooltipProvider>
       <CartProvider>
         <SearchProvider>
+          {" "}
+          {/* ⬅️ NEW: Wrap with SearchProvider */}
           <Toaster />
           <Sonner />
           <BrowserRouter>
