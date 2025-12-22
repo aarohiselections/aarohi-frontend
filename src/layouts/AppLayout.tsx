@@ -226,7 +226,7 @@ const AppLayout = () => {
                   <Input
                     ref={inputRef}
                     type="text"
-                    placeholder="Search sarees, fabrics, colors..."
+                    placeholder="Search sarees and more from our collections..."
                     value={globalSearch}
                     onChange={(e) => setGlobalSearch(e.target.value)}
                     className="pl-10 pr-24 h-12 text-base sm:text-lg"

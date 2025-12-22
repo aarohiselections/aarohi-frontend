@@ -523,11 +523,12 @@ const Collections = () => {
 
   useEffect(() => {
     const initialSearch = searchParams.get("search") || "";
-    if (initialSearch) {
+    if (initialSearch !== searchQuery) {
+      // Prevent infinite loop
       setSearchQuery(initialSearch);
-      setDebouncedSearch(initialSearch); // immediate fetch with URL search
+      setDebouncedSearch(initialSearch); // Immediate fetch
     }
-  }, []); // empty deps = runs once
+  }, [searchParams, searchQuery]); // empty deps = runs once
   // --- Search Debounce ---
   useEffect(() => {
     const timer = setTimeout(() => {
