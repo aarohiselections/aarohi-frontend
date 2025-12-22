@@ -210,6 +210,7 @@ import TrackOrder from "@/pages/TrackOrder";
 import PaymentSuccess from "@/pages/PaymentSuccess";
 import PaymentFailed from "@/pages/PaymentFailed";
 import PoliciesPage from "@/pages/policies/PoliciesPage";
+import { SearchProvider } from "./context/SearchContext";
 
 const queryClient = new QueryClient();
 
@@ -435,23 +436,25 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <CartProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <ScrollToTop />
-          <div className="flex flex-col min-h-screen relative">
-            <PeacockAnimation />
-            <div className="sticky top-0 z-50">
-              <AnnouncementBar />
-              <Header />
+        <SearchProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <ScrollToTop />
+            <div className="flex flex-col min-h-screen relative">
+              <PeacockAnimation />
+              <div className="sticky top-0 z-50">
+                <AnnouncementBar />
+                <Header />
+              </div>
+              <main className="flex-1 relative z-10">
+                <AnimatedRoutes />
+              </main>
+              <Footer />
+              <FloatingWhatsApp />
             </div>
-            <main className="flex-1 relative z-10">
-              <AnimatedRoutes />
-            </main>
-            <Footer />
-            <FloatingWhatsApp />
-          </div>
-        </BrowserRouter>
+          </BrowserRouter>
+        </SearchProvider>
       </CartProvider>
     </TooltipProvider>
   </QueryClientProvider>
