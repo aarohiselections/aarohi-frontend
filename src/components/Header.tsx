@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShoppingCart, Menu, X, Heart, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -40,7 +40,7 @@ export const Header = () => {
     { to: "/contact", label: "Contact" },
     { to: "/track-order", label: "Order status" },
   ];
-
+  const navigate = useNavigate();
   return (
     <header className="w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4">
@@ -79,7 +79,7 @@ export const Header = () => {
               variant="outline"
               size="icon"
               className="rounded-full"
-              onClick={openGlobalSearch}
+              onClick={() => navigate("/collections")}
               aria-label="Search"
             >
               <Search className="h-4 w-4" />
