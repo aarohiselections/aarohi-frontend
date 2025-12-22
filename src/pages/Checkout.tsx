@@ -749,7 +749,7 @@ const Checkout = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 63035 19426"
+                      placeholder="+91 XXXXX XXXXX"
                       required
                     />
                   </div>

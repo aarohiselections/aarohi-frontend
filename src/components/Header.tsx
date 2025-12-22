@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, Menu, X, Heart } from "lucide-react";
+import { ShoppingCart, Menu, X, Heart, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useCart } from "@/context/CartContext";
@@ -73,6 +73,18 @@ export const Header = () => {
           {/* Right Section */}
           <div className="flex items-center space-x-2">
             <ThemeToggle />
+            // In your Header component, add this search button:
+            <Button
+              variant="outline"
+              size="icon"
+              className="rounded-full"
+              onClick={() => {
+                /* You'll need a context/useGlobalSearch hook or pass down the callback */
+              }}
+              aria-label="Search"
+            >
+              <Search className="h-4 w-4" />
+            </Button>
             <Link to="/wishlist">
               <Button
                 variant="ghost"

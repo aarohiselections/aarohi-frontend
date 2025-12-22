@@ -433,6 +433,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useNavigate, useSearchParams } from "react-router-dom"; // ⬅️ ADD THIS
 
 // --- API Configuration ---
 const API_BASE_URL = import.meta.env.VITE_API_URL;
@@ -463,6 +464,8 @@ type SortOption =
   | "name-za";
 
 const Collections = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   // --- Data State ---
   const [products, setProducts] = useState<APIProduct[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
@@ -484,7 +487,6 @@ const Collections = () => {
   const [showOnlyDiscount, setShowOnlyDiscount] = useState(false);
   const [showInStock, setShowInStock] = useState(false);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
-
   // --- Initial Data Fetch (Filters) ---
   useEffect(() => {
     const fetchMetadata = async () => {
@@ -519,6 +521,13 @@ const Collections = () => {
     fetchMetadata();
   }, []);
 
+  useEffect(() => {
+    const initialSearch = searchParams.get("search") || "";
+    if (initialSearch) {
+      setSearchQuery(initialSearch);
+      setDebouncedSearch(initialSearch); // immediate fetch with URL search
+    }
+  }, []); // empty deps = runs once
   // --- Search Debounce ---
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -601,6 +610,7 @@ const Collections = () => {
     setPriceRange([0, 20000]);
     setShowOnlyDiscount(false);
     setShowInStock(false);
+    navigate("/collections");
   };
 
   const activeFiltersCount = [
