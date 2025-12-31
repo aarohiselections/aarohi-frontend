@@ -33,7 +33,8 @@ const ReturnsPolicy = () => {
           </CardHeader>
           <CardContent className="pt-4">
             <p className="text-lg font-semibold mb-2">
-              Only Replacement Option Available - No Returns and No Refunds
+              Only Replacement Option Available - Returns within 3 days and No
+              Refunds
             </p>
             <p className="text-muted-foreground">
               We offer replacement only for damaged products. Refunds are not
