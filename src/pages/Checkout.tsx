@@ -656,7 +656,7 @@ const Checkout = () => {
         base_total: baseTotal.toFixed(2),
       };
 
-      const res = await fetch(`${BASE_URL}/phonepe/initiate/`, {
+      const res = await fetch(`${BASE_URL}/payments/phonepe/initiate/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderPayload),
