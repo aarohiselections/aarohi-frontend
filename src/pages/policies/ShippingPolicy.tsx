@@ -119,7 +119,7 @@ const ShippingPolicy: React.FC = () => {
             <li>
               <strong>7 days</strong> from order/payment date
             </li>
-            <li>Or as per agreed delivery date</li>
+
             <li>Subject to courier processing times</li>
           </ul>
         </div>
